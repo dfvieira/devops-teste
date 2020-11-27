@@ -1,0 +1,9 @@
+{
+  "name": "sqs-receiver",
+  "version": "0.0.1",
+  "dependencies": {
+    "aws-sdk": "^2.7.22",
+    "mongodb": "^3.6.3",
+    "sqs-consumer": "^5.4.0"
+  }
+}

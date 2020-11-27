@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  mongodb:
+    image: tutum/mongodb
+    environment:
+      - AUTH=no
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+  sender:
+    build: ./sender
+    environment:
+      TZ: America/Sao_Paulo
+      SQS_URL: 
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: 
+      AWS_SECRET_ACCESS_KEY: 
+    ports:
+      - "8001:8001"
+  receiver:
+    build: ./receiver
+    environment:
+      TZ: America/Sao_Paulo
+      SQS_URL: 
+      MONGO_URL: mongodb://mongodb:27017/
+      MONGO_DB: sqs
+      MONGO_COLLECTION: sugestao
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: 
+      AWS_SECRET_ACCESS_KEY: 

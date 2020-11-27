@@ -1,0 +1,16 @@
+{
+  "name": "sqs-sender",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start-sender-svc": "node ./server.js",
+    "start": "npm-run-all -p -r start-sender-svc"
+  },
+  "author": "Daniel Vieira",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "aws-sdk": "^2.7.22"
+  }
+}

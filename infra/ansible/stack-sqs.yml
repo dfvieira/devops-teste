@@ -1,0 +1,4 @@
+- name: Stack SQS
+  hosts: localhost
+  roles:
+    - common

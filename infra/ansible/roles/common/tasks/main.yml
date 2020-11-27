@@ -1,0 +1,23 @@
+- name: terraform provisioning
+  shell: cd /devops/terraform/environment/devops/ && terraform init && terraform apply -auto-approve
+
+- name: output_sender_user
+  shell: cd /devops/terraform/environment/devops/ && terraform output sender_user
+  register: sender_user
+
+- name: output_receiver_user
+  shell: cd /devops/terraform/environment/devops/ && terraform output receiver_user
+  register: receiver_user
+
+- name: sqs_url
+  shell: cd /devops/terraform/environment/devops/ && terraform output id
+  register: sqs_url
+
+- name: receiver_user
+  debug: msg="{{ receiver_user.stdout_lines }}"
+
+- name: sender_user
+  debug: msg="{{ sender_user.stdout_lines }}"
+
+- name: sqs_url
+  debug: msg="{{ sqs_url.stdout_lines }}"
